@@ -11,5 +11,5 @@ import { WebLayoutComponent } from './layout/web-layout/web-layout.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'itsyangualr';
+  title = 'itsyansgualr';
 }
