@@ -1,0 +1,15 @@
+<form
+    class="flex w-[400px] items-center shadow-md lg:max-w-md bg-white rounded-lg overflow-hidden border border-gray-200"
+    (ngSubmit)="handleSubmit()">
+    <input type="text" [(ngModel)]="searchValue" placeholder="Search Product, Category, Brand.."
+        class="w-full px-4 py-2 text-sm  text-gray-800 rounded-sm focus:outline-none" name="searchValue">
+
+
+    <a routerLink="store" [queryParams]="{search:searchValue}" class="flex items-center
+        bg-[#074936] text-white disabled:bg-gray-400 disabled:cursor-not-allowed justify-center w-12 h-10
+        md:rounded-r-lg" >
+        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNmY2ZjZmMiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0ibHVjaWRlIGx1Y2lkZS1zZWFyY2giPjxjaXJjbGUgY3g9IjExIiBjeT0iMTEiIHI9IjgiLz48cGF0aCBkPSJtMjEgMjEtNC4zLTQuMyIvPjwvc3ZnPg=="
+            alt="serachTag">
+    </a>
+
+</form>
