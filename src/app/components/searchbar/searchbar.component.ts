@@ -14,6 +14,7 @@ export class SearchbarComponent {
   searchValue: string = '';
 
   handleSubmit(){
+    this.searchValue=''
     console.log(this.searchValue);
  
     // this.router.navigate(['store'], { queryParams: { search: this.searchValue.trim() } });

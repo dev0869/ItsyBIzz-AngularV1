@@ -1,0 +1,11 @@
+.bgheader{
+    width: 100%;
+    height: calc(100vh - 120px);
+    object-fit: contain;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 62% 93%;
+    background-image: url("../../../assets/homepagebanner.avif");
+  }
+  
+  
