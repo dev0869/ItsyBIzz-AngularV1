@@ -1,4 +1,4 @@
-import { Component, importProvidersFrom } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { WebLayoutComponent } from './layout/web-layout/web-layout.component';
 import { LucideAngularModule } from 'lucide-angular';

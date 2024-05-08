@@ -1,0 +1,48 @@
+<form [formGroup]="enqueryForm" (ngSubmit)="handleSubmit()" class="flex flex-wrap max-w-2xl gap-4">
+    <div class="w-full md:w-[48%] flex flex-col">
+        <label htmlFor="name">Name</label>
+        <input type="text" formControlName="name" placeholder="Enter Name">
+        <div *ngIf="enqueryForm.controls['name'].touched || sendingData ||enqueryForm.controls['name'].valid">
+
+            <div *ngIf="enqueryForm.controls['name']?.errors?.['required']">
+                <p>this is required field</p>
+            </div>
+        </div>
+
+    </div>
+    <div class="w-full md:w-[48%] flex flex-col">
+        <label htmlFor="mobile">Mobile Number</label>
+        <input type="text" maxLength={10} formControlName="mobile" placeholder="Enter your Mobile Number">
+        <!-- {showError(errors.mobile?.message as string)} -->
+    </div>
+
+    <div class="w-full md:w-[48%] flex flex-col">
+        <label htmlFor="quantity">City</label>
+        <input type="string" formControlName="city" placeholder="Enter City Name">
+        <!-- {showError(errors.city?.message as string)} -->
+    </div>
+    <div class="w-full bot flex flex-col">
+        <label htmlFor="quantity">Which Type of Machine Do You Want?</label>
+        <input formControlName="requirement" class="border p-2  rounded-lg"
+            placeholder="Which Type of Machine Do You Want?" />
+        <!-- {showError(errors.requirement?.message as string)} -->
+    </div>
+
+    <div class="w-full md:w-[48%] flex flex-col">
+        <label htmlFor="wantFinance">Do You Want Finance?</label>
+        <label>
+            <input type="radio" value="Yes" formControlName="wantFinace" required />
+            Yes
+        </label>
+        <label>
+            <input required value="No" formControlName="wantFinace" type="radio" />
+            No
+        </label>
+        <!-- {showError(errors.wantFinace?.message)} -->
+    </div>
+    <div class="submit-area rounded mx-auto">
+        <button  type="submit" class="bg-primary-main">
+            SUBMIT REQUEST
+        </button>
+    </div>
+</form>
