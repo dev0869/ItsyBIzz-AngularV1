@@ -18,6 +18,6 @@ export class HomeComponent implements OnInit {
     this.products$ = this.getProducts.get('products').pipe(
       map((data: any[]) => data.slice(0, 3).reverse()), 
     )
-    this.products$.subscribe();
+this.products$.subscribe((data)=>console.log(data));
   }
 }
