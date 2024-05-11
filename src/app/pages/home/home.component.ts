@@ -1,41 +1,49 @@
-import { Component, OnInit, Signal, inject, signal } from '@angular/core';
-import { ApiService } from '../../services/api.service';
+import { Component } from '@angular/core';
 import { SearchbarComponent } from '../../components/searchbar/searchbar.component';
 import { RouterLink } from '@angular/router';
-import { Observable, map } from 'rxjs';
-import { CommonModule } from '@angular/common';
-import { ProfileService } from '../../services/profile.service';
+import { CommonModule, NgFor, NgIf } from '@angular/common';
+import { ProductService } from '../../services/product.service';
+import { LucideAngularModule } from 'lucide-angular';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [SearchbarComponent, CommonModule, RouterLink],
+  imports: [SearchbarComponent,NgFor,NgIf, CommonModule,LucideAngularModule, RouterLink],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
-export class HomeComponent  {
-
-   userProfile: any;
-
-  constructor(private profileService: ProfileService) {
-    this.userProfile = this.profileService.fetchProfile();
+export class HomeComponent {
+  productList: any;
+  productsMeta:any;
+  
+  constructor(private products: ProductService) {
+    this.products.getProducts();
+    this.products.getProductsMetaData()
   }
   ngOnInit() {
-    this.userProfile = this.profileService.userProfileSignal();
-    // this.profileService.fetchProfile();
-    console.log(this.userProfile);
+    this.productList = this.products.products();
+    this.productsMeta=this.products.productsMeta();
+
+    console.log(this.productList,this.productsMeta);
   }
 }
 
+//   constructor(private profileService: ProfileService) {
+//     this.userProfile = this.profileService.fetchProfile();
+//   }
+//   ngOnInit() {
+//     this.userProfile = this.profileService.userProfileSignal();
+//     // this.profileService.fetchProfile();
+//     console.log(this.userProfile);
+//   }
+// }
 
 // export class HomeComponent implements OnInit {
 //   getProducts = inject(ApiService);
 //   products$!: Observable<any>;
 //   ngOnInit() {
 //     this.products$ = this.getProducts.get('products').pipe(
-//       map((data: any[]) => data.slice(0, 3).reverse()), 
+//       map((data: any[]) => data.slice(0, 3).reverse()),
 //     )
 // this.products$.subscribe((data)=>console.log(data));
 //   }
 // }
-
-

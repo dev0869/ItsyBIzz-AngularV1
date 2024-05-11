@@ -14,7 +14,7 @@ import {
   templateUrl: './enquery-form.component.html',
 })
 export class EnqueryFormComponent {
-  sendingData:boolean=false;
+  sendingData: boolean = false;
   enqueryForm = new FormGroup({
     name: new FormControl('', [Validators.required]),
     mobile: new FormControl('', [
@@ -23,7 +23,7 @@ export class EnqueryFormComponent {
     ]),
     city: new FormControl('', [Validators.required]),
     requirement: new FormControl('', [Validators.required]),
-    wantFinace: new FormControl('',[Validators.required]),
+    wantFinace: new FormControl('', [Validators.required]),
   });
 
   handleSubmit() {
@@ -31,9 +31,8 @@ export class EnqueryFormComponent {
       return;
     }
     // debugger;
-      console.log(this.enqueryForm.value);
-
-this.sendingData=true
+    console.log(this.enqueryForm.value);
+    this.sendingData = true;
     // this.enqueryForm.reset()
   }
 }

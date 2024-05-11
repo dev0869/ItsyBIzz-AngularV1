@@ -12,34 +12,57 @@
                 <path d="M15 15h.01"></path>
             </svg> Learn about ItsyBizz.com
         </p>
-
         <p class="text-white w-[965px] text-[44px] font-[600] ">
             The foremost B2B ecommerce solution facilitating trade partnerships
         </p>
-
         <br />
+
         <app-searchbar />
         <br />
         <div class="flex items-center gap-4">
             <p class="text-white">Frequently searched:</p>
             <div class="flex my-2 gap-2">
+                <ng-container *ngIf="productList else loading">
+                    @for (item of productList.slice(0,3).reverse(); track $index) {
 
-                <ng-container *ngIf="userProfile  else loading">
-                    @for (item of userProfile; track $index) {
-                    <a class="text-white border-2 w-fit px-3 py-1 rounded-full"
-                        [routerLink]="'product/' + item.name">{{ item.name }}</a>
+                    <a class="text-white border-2 w-fit px-3 py-1 rounded-full" [routerLink]="'product/' + item.name">{{
+                        item.name }}</a>
                     }
                 </ng-container>
-                <!-- <ng-container *ngIf="products$ | async as products; else loading">
-                    @for (item of products; track $index) {
-                    <a class="text-white border-2 w-fit px-3 py-1 rounded-full"
-                        [routerLink]="'product/' + item.name">{{ item.name }}</a>
-                    }
-                </ng-container> -->
                 <ng-template #loading>
                     <p>Loading...</p>
                 </ng-template>
             </div>
         </div>
+    </div>
+</div>
+
+<!-- new category section -->
+
+<div class="container">
+    <h1 class="text-primary-main font-semibold text-xl md:text-3xl my-4">
+        Explore Catgories :
+    </h1>
+    <div class="grid grid-cols-4 md:grid-cols-6 gap-2">
+        @for (item of productsMeta.categories.slice(0,11); track $index) {
+            <img src="'https://source.unsplash.com/69x69/?'+item.name" width="100" height="100" alt="image">
+
+        <a routerLink="store" class="flex flex-col gap-2 items-center">
+            <p class="text-[10px] md:text-[14px] text-gray-600 capitalize text-center">
+                {{item.name}}
+            </p>
+
+        </a>
+
+        }
+
+        <a routerLink="store" class="flex flex-col gap-2 items-center justify-center ">
+            <lucide-icon class="text-white bg-blue-600 rounded-full size-8 md:size-12"
+                name="circle-arrow-down"></lucide-icon>
+
+            <p class="text-[10px] md:text-[14px] text-gray-600 capitalize text-center">
+                Show More
+            </p>
+        </a>
     </div>
 </div>

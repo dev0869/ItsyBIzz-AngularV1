@@ -3,14 +3,13 @@ import { Injectable, signal } from '@angular/core';
 import { catchError, of, retry } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProfileService {
 
-  userProfileSignal = signal<any | null>(null); // set null initial value
-
+  userProfileSignal = signal<any | null>(null); 
   constructor(private http: HttpClient) {}
-
+  
   fetchProfile() {
     console.log('trigger fetchProfile');
     this.http
