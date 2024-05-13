@@ -41,10 +41,11 @@
 
 <div class="container">
     <h1 class="text-primary-main font-semibold text-xl md:text-3xl my-4">
-        Explore Catgories :
+        Explore Catgories : 
     </h1>
     <div class="grid grid-cols-4 md:grid-cols-6 gap-2">
         @for (item of productsMeta.categories.slice(0,11); track $index) {
+            <img src="'https://source.unsplash.com/69x69/?'+item.name" width="100" height="100" alt="image">
 
         <a routerLink="store" class="flex flex-col gap-2 items-center">
             <img class="rounded-full size-12 md:size-20 border shadow-md"

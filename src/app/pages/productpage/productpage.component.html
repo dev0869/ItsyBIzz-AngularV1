@@ -1,1 +1,71 @@
-<p>productPage</p>
+<div class="container py-4 flex flex-wrap gap-4 items-start relative">
+    <div class="flex-[3] md:sticky top-24 border rounded-md h-fit p-2">
+        <!-- <SelectImage images={images} /> -->
+    </div>
+    <div class="flex-[5]">
+        <div class="border p-2 rounded">
+            <div class="brand-tag text-md w-fit pr-[30%] p-1 overflow-y-hidden text-gray-600 ">
+                {{data.brand}}
+            </div>
+
+            <p class="text-xl font-semibold mt-2 text-gray-600">{name}</p>
+            <p class="text-2xl py-2 font-semibold text-[#54546b]">
+                <!-- {numberFormat(+price - (+price * +discount) / 100)} -->
+            </p>
+            <p class="text-md text-gray-500">
+                <!-- MRP <del> {numberFormat(+price)}</del> -->
+                <sup>{{data.discount}}%</sup>
+            </p>
+
+            <div class="rounded-md my-4">
+                <p class="text-lg text-gray-800 font-semibold">
+                    Product Details :{" "}
+                </p>
+                <div class="max-md:text-sm">
+                    <!-- {parse(discription.replace(/<\/?p>/g, "")) || discription} -->
+                </div>
+
+                <div class="flex border-2 border-dotted mt-4">
+                    <div class="flex-[5] font-bolder capitalize">
+                        @if(data.brand){
+                        <div class="para p-2 my-1">Brand</div>
+                        }
+                        @if(data.category){
+                        <div class="para p-2 my-1">Brand</div>
+                        }
+                        @if(data.subcategory){
+                        <p class="para bg-blue-100 p-2 my-1">subcategory</p>
+                        }
+                    </div>
+                    <div class="flex-[5] border-dotted border-l-2 capitalize">
+                        @if(data.brand){
+                        <p class="para p-2 my-1">{{data.brand}}</p> }
+                        @if(data.category){
+                        <p class="para p-2 my-1">{{data.category}}</p> }
+                        @if(data.subcategory){
+                        <p class="para p-2 my-1">{{data.subcategory}}</p> }
+
+                    </div>
+                </div>
+            </div>
+            <div class="grid gap-4 md:grid-cols-2 w-full">
+                <button (click)="handleCart()"
+                    class=" flex gap-2 md:gap-6 items-center justify-center text-xl opacity-80 transition-all duration-150 hover:opacity-100 bg-primary-main text-white px-4 py-2">
+                    Buy Now
+                    <!-- <ShoppingCartIcon /> -->
+                </button>
+                @if(data.price>70000){
+                    <a routerLink="finance" data-="" state={{ _id, name,price }}
+                    class=" flex gap-2 md:gap-6 items-center justify-center text-xl opacity-80 transition-all duration-150 hover:opacity-100 bg-primary-main text-white px-4 py-2">
+                Finance Now
+                <HandCoins />
+                </Link>
+                }
+               
+            </div>
+        </div>
+        <div class="my-4">
+            <ShowReviews {...product} />
+        </div>
+    </div>
+</div>

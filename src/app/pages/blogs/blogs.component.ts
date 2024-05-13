@@ -8,7 +8,6 @@ import { RouterLink } from '@angular/router';
   standalone: true,
   imports: [CommonModule,RouterLink],
   templateUrl: './blogs.component.html',
-  styleUrl: './blogs.component.css',
 })
 export class BlogsComponent implements OnInit {
   blogs: any;
