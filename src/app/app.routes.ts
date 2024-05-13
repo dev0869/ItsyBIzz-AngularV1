@@ -4,6 +4,8 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { HomeComponent } from './pages/home/home.component';
 import { EnquiryComponent } from './pages/enquiry/enquiry.component';
 import { ProductpageComponent } from './pages/productpage/productpage.component';
+import { BlogsComponent } from './pages/blogs/blogs.component';
+import { BlogsDetailsComponent } from './pages/blogs-details/blogs-details.component';
 
 export const routes: Routes = [
     {
@@ -22,6 +24,14 @@ export const routes: Routes = [
     {
         path:'product/:name',
         component:ProductpageComponent
+    },
+    {
+        path:'blogs',
+        component:BlogsComponent
+    },
+    {
+        path:'blogs/:name',
+        component:BlogsDetailsComponent
     },
     {
         path:'**',

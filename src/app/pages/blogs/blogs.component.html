@@ -1,0 +1,19 @@
+<section id="blog-section" class=" container p-3">
+    <h1 class="text-primary-main text-4xl font-bold">Available Blogs</h1>
+    <div class="grid gap-4 my-4 sm:grid-cols-2 md:grid-cols-4 xl:grid-cols-5">
+        @for (item of blogs; track $index) {
+        <div
+            class="rounded-xl shadow-sm overflow-hidden cursor-pointer border hover:shadow-xl transition-all duration-150 space-y-2">
+            <img [src]="item.imgurl" [alt]="item.slug" class="w-full h-[200px] object-cover" />
+            <h1 class="text-2xl font-semibold px-2">{{item.title}}</h1>
+            <p class="text-md text-gray-700 px-2 line-clamp-4">{{item.description}}</p>
+            <div class="pb-4">
+                <a [routerLink]="'/blogs/' + item.slug"class="text-blue-500 px-2 my-4">
+                    Read More
+                </a>
+            </div>
+        </div>
+        }
+
+    </div>
+</section>

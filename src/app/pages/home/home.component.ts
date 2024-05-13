@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
 import { SearchbarComponent } from '../../components/searchbar/searchbar.component';
 import { RouterLink } from '@angular/router';
-import { CommonModule, NgFor, NgIf } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { ProductService } from '../../services/product.service';
 import { LucideAngularModule } from 'lucide-angular';
+import { ButtonModule } from 'primeng/button';
+
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [SearchbarComponent,NgFor,NgIf, CommonModule,LucideAngularModule, RouterLink],
+  imports: [SearchbarComponent,ButtonModule,CommonModule,LucideAngularModule, RouterLink],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
