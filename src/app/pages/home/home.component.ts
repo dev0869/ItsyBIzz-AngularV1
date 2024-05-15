@@ -1,29 +1,46 @@
 import { Component } from '@angular/core';
 import { SearchbarComponent } from '../../components/searchbar/searchbar.component';
 import { RouterLink } from '@angular/router';
-import { CommonModule, NgFor, NgIf } from '@angular/common';
+import { ServiceData } from '../../constants';
+import { CommonModule } from '@angular/common';
+import { ButtonModule } from 'primeng/button';
 import { ProductService } from '../../services/product.service';
 import { LucideAngularModule } from 'lucide-angular';
+import { BusinessService } from '../../services/business.service';
+import { BusinesscardComponent } from '../../components/businesscard/businesscard.component';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [SearchbarComponent,NgFor,NgIf, CommonModule,LucideAngularModule, RouterLink],
+  imports: [
+    SearchbarComponent,
+    CommonModule,
+    ButtonModule,
+    LucideAngularModule,
+    BusinesscardComponent,
+    RouterLink,
+  ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
 export class HomeComponent {
   productList: any;
-  productsMeta:any;
-  
-  constructor(private products: ProductService) {
+  productsMeta: any;
+  busnessList: any;
+ data=ServiceData;
+
+  constructor(
+    private products: ProductService,
+    private business: BusinessService
+  ) {
     this.products.getProducts();
-    this.products.getProductsMetaData()
+    this.products.getProductsMetaData();
+    this.business.getBusiness();
   }
   ngOnInit() {
     this.productList = this.products.products();
-    this.productsMeta=this.products.productsMeta();
-
-    console.log(this.productList,this.productsMeta);
+    this.productsMeta = this.products.productsMeta();
+    this.busnessList = this.business.buninessList();
+    console.log(this.busnessList);
   }
 }
 

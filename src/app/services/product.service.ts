@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, signal } from '@angular/core';
 import { catchError, of, retry } from 'rxjs';
+import { BASE_URL } from '../constants';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +15,7 @@ export class ProductService {
   constructor(private http: HttpClient) {}
 
   getProducts() {
-    this.http.get<any>(this.BASE_URL + 'products').pipe(
+    this.http.get<any>(BASE_URL + 'products').pipe(
       retry(3),
       catchError((err) => {
         console.log(err);

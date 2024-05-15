@@ -1,0 +1,59 @@
+
+<div class="grid sm:grid-cols-2 lg:grid-cols-4">
+    <ng-container *ngFor="let item of data; let i = index">
+      <div class="border rounded-xl shadow relative overflow-hidden">
+        <div *ngIf="item.plan === 'premium'"
+             [style.transform]="'rotate(312deg)'"
+             [style.width]="'165px'"
+             [style.top]="'7px'"
+             [style.left]="'-35px'"
+             class="border bg-primary-main absolute text-white pl-6 text-sm capitalize">
+          {{ item.plan }}
+        </div>
+  
+        <img *ngIf="item.images && item.images.length > 0"
+             [src]="item.images[0]"
+             [alt]="item.businessName"
+             class="rounded-t-xl w-full h-48 object-cover" />
+        
+        <div class="p-2">
+          <a [routerLink]="'/business/' + item.businessName">
+            <h4 class="font-semibold text-xl my-2">{{ item.businessName }}</h4>
+          </a>
+          <p class="text-gray-600 flex gap-2 items-center">
+            <lucide-icon name="map-pin"></lucide-icon>
+            {{ item.address }}
+          </p>
+  
+          <p *ngIf="item.gstNo" class="text-gray-600 flex gap-2 items-center">
+            <lucide-icon name="circle-check-big"></lucide-icon>
+            {{ item.gstNo }}
+          </p>
+  
+          <p class="my-1">
+            <span class="font-[500] text-gray-500">Category</span> : {{ item.category }}
+          </p>
+          
+          <button *ngIf="item.showMobile"
+                  class="border rounded py-2 bg-primary-main w-full text-white mb-2">
+            Query Now
+          </button>
+  
+          <ng-container *ngIf="!showMobile">
+            <button (click)="handleseen()"
+                    class="border rounded py-2 bg-primary-main w-full text-white mb-2">
+              Get Mobile Number
+            </button>
+          </ng-container>
+  
+          <a *ngIf="showMobile"
+             [href]="'tel:' + item.mobile"
+             class="border flex gap-2 justify-center rounded py-2 bg-primary-main w-full text-white mb-2 text-center">
+            <lucide-icon name="phone-call"></lucide-icon>
+            {{ item.mobile }}
+          </a>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+  
