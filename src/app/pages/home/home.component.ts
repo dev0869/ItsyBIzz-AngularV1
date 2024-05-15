@@ -22,6 +22,7 @@ import { BusinesscardComponent } from '../../components/businesscard/businesscar
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
+// hiii
 export class HomeComponent {
   productList: any;
   productsMeta: any;
